@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">CRM System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'upload_json' %}">Upload</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'records' %}">Records</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'transformdata' %}">Transform</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'analysis' %}">Analysis</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <h1>Customer Records</h1>
+<!--    <p>rec {{ record }}</p>-->
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Region</th>
+                <th>City</th>
+                <th>Interests</th>
+                <th>Purchase History</th>
+
+                <th>Feedback</th>
+                <th>Income Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.CustomerID }}</td>
+                <td>{{ record.Name }}</td>
+                <td>{{ record.Age }}</td>
+                <td>{{ record.Gender }}</td>
+                <td>{{ record.Region }}</td>
+                <td>{{ record.City }}</td>
+                <td>{{ record.Interests }}</td>
+                <td>{{ record.Purchase_History|join:", " }}</td>
+                <td>{{ record.Last_Purchase_Date }}</td>
+                <td>{{ record.Feedback }}</td>
+                <td>{{ record.Income_Level }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="11">No records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

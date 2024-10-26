@@ -1,0 +1,17 @@
+<h1>Data Transformation Complete</h1>
+<div>
+    <h2>Summary:</h2>
+    <ul>
+        <li>Total records processed: {{ summary.total_records }}</li>
+        <li>Unique regions: {{ summary.unique_regions }}</li>
+        <li>Unique cities: {{ summary.unique_cities }}</li>
+        <li>Age range: {{ summary.age_range }}</li>
+    </ul>
+
+    <h3>Gender Distribution:</h3>
+    <ul>
+    {% for gender, count in summary.gender_distribution.items %}
+        <li>{{ gender }}: {{ count }}</li>
+    {% endfor %}
+    </ul>
+</div>

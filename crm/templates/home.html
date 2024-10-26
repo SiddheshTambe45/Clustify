@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustify Segment</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .btn-get-started {
+            background-color: #4ADE80;
+            transition: all 0.2s ease;
+        }
+        .btn-get-started:hover {
+            background-color: #22C55E;
+            transform: translateY(-1px);
+        }
+        .btn-learn-more {
+            color: #DC2626;
+            transition: all 0.2s ease;
+        }
+        .btn-learn-more:hover {
+            color: #B91C1C;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="w-8 h-8 bg-[#ff6b4a] rounded-full"></div>
+                    <span class="ml-2 text-xl font-bold text-gray-900">Clustify</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                  <a href="{% url 'upload_json' %}">
+                    <button class="px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800">
+                        Upload Data
+                    </button>
+                  </a>
+                    <button class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                        Report & Insights
+                    </button>
+                    <div class="w-8 h-8 bg-[#ff6b4a] rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main class="pt-32 pb-16 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+            <h1 class="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight mb-4">
+                Clustify <span class="text-[#4ADE80]">Segment</span>
+            </h1>
+            <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 tracking-tight mb-8">
+                Understand, Connect.
+            </h2>
+            <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+                Clustify is a smart segmentation web app designed to help you understand user behavior, boost engagement, and foster meaningful connections.
+            </p>
+            <div class="flex items-center justify-center space-x-6">
+              <a href="{% url 'upload_json' %}">
+              <button class="btn-get-started px-8 py-3.5 text-white text-lg font-semibold rounded-xl shadow-lg shadow-green-200">
+                    Get Started
+                </button>
+              </a>
+                <button class="btn-learn-more px-8 py-3.5 text-lg font-semibold">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
